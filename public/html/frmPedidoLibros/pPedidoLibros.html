@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="author" content="Ricardo Menéndez" />
+  <meta name="keywords" content="pedidos, libros" />
+  <meta name="description" content="compra libros"/>
+  <title>Compra libros en nuestros almacenes virtuales</title>
+
+</head>
+<body>
+<div id="idFormularioPedido">
+  <div id="idTiraImagenes">
+    <div><img src="img/libro1.jpg" alt="Libro1" width="75" height="75"></div>
+    <div><img src="img/libro3.jpg" alt="Libro3" width="75" height="75"></div>
+    <div><img src="img/libro4.jpg" alt="Libro4" width="75" height="75"></div>
+    <div><img src="img/libro2.jpg" alt="Libro2" width="75" height="75"></div>
+    <div><img src="img/libro1.jpg" alt="Libro1" width="75" height="75"></div>
+    <div><img src="img/libro4.jpg" alt="Libro4" width="75" height="75"></div>
+    <div><img src="img/libro2.jpg" alt="Libro2" width="75" height="75"></div>
+    <div><img src="img/libro3.jpg" alt="Libro3" width="75" height="75"></div>
+    <div><img src="img/libro1.jpg" alt="Libro1" width="75" height="75"></div>
+    <div><img src="img/libro3.jpg" alt="Libro3" width="75" height="75"></div>
+    <div><img src="img/libro4.jpg" alt="Libro4" width="75" height="75"></div>
+    <div><img src="img/libro2.jpg" alt="Libro2" width="75" height="75"></div>
+    <div><img src="img/libro1.jpg" alt="Libro1" width="75" height="75"></div>
+    <div><img src="img/libro4.jpg" alt="Libro4" width="75" height="75"></div>
+  </div>
+<script type="text/javascript">
+
+</script>
+
+ <form action="" target="_self" method="GET" name="pedidos" id="idpedidos"
+       onsubmit="comprobarPedido()">
+ <div id="idListaArticulos">
+    <fieldset>
+    	<label for="">Libros para usted ...</label>
+
+        <div class="clsLineaArticulo">
+    			<div class="clsElementoLinea">
+            <img src="img/libro1.jpg" alt="Libro1" width="75" height="75">
+          </div>
+    			<div class="clsElementoLinea">
+            <input type="checkbox" name="nlibroCHK" value="L1" id="iLibroCHKL1"  
+                onclick="return false"
+            >
+          </div>
+    			<div class="clsElementoLineaTitulo">El Quijote</div>
+    			<div class="clsElementoLineaCantidad">
+            <label for="idcanL1">Cantidad:</label>
+            <input id="idcanL1" type="number" name="nlibro1" value="0" max="3"
+              onchange="salidaCantidad('L1', this.value)">
+            <span id="idMsjL1" class="msgLError"></span>
+          </div>
+    		</div>
+
+        <div class="clsLineaArticulo">
+    			<div class="clsElementoLinea">
+            <img src="img/libro2.jpg" alt="Libro2" width="75" height="75">
+          </div>
+    			<div class="clsElementoLinea">
+            <input type="checkbox" name="nlibroCHK" value="L2" id="iLibroCHKL2">
+          </div>
+    			<div class="clsElementoLineaTitulo">La Celestina</div>
+    			<div class="clsElementoLineaCantidad">
+            <label for="idcanL2">Cantidad:</label>
+            <input id="idcanL2" type="number" name="nlibro2" value="0" max="3"
+              onchange="salidaCantidad('L2', this.value)">
+            <span id="idMsjL2" class="msgLError"></span>
+          </div>
+    		</div>
+
+        <div class="clsLineaArticulo">
+    			<div class="clsElementoLinea">
+            <img src="img/libro3.jpg" alt="Libro3" width="75" height="75">
+          </div>
+    			<div class="clsElementoLinea">
+            <input type="checkbox" name="nlibroCHK" value="L3" id="iLibroCHKL3">
+          </div>
+    			<div class="clsElementoLineaTitulo">En el día de hoy</div>
+    			<div class="clsElementoLineaCantidad">
+            <label for="idcanL3">Cantidad:</label>
+            <input id="idcanL3" type="number" name="nlibro3" value="0" max="3" 
+              onchange="salidaCantidad('L3', this.value)">
+            <span id="idMsjL3" class="msgLError"></span>
+          </div>
+    		</div>
+    </fieldset>
+  </div>
+
+
+  <div id="idDatosPersonales">
+    <fieldset>
+      <legend>Información personal</legend>
+      	<label for="idnombre">Nombre:</label><br>
+        <input type="text" name="nombre" id="idnombre" size="30"><br>
+      	<label for="idapellido">Apellido:</label><br>
+        <input type="text" name="apellido" id="idapellido" size="30"><br>
+
+        <label for="iddireccioncalle">Calle:</label><br>
+        <input type="text" name="direccioncalle" id="iddireccioncalle" size="60"><br>
+        <label for="iddireccionpoblacion">Población:</label><br>
+        <input type="text" name="direccionpoblacion" id="iddireccionpoblacion" size="40"><br>
+        <label for="iddireccioncp">C.P.:</label><br>
+        <input type="text" name="direccioncp" id="iddireccioncp" size="20" maxlength="5"
+          onblur="validaCodigoPostal(this.value, 'msjCabIP', 'msjDetIP')" 
+        >
+        <br>
+
+        <label for="idDNI">D.N.I.:</label><br>
+        <input type="text" name="dni" id="idDNI" size="9" required 
+                pattern="^\d{8}[a-zA-Z]$" title="( Hasta 8 números y una letra al final )"
+                onfocusout="validaNIF('idDNImsj1',this.value)"
+                oninvalid="document.getElementById('idDNImsj2').textContent=this.title">
+            <span id="idDNImsj1" class="msgLError"></span><br>
+            <span id="idDNImsj2" class="msgLError"></span><br>
+
+        <label for="idemail">email:</label><br>
+        <input type="email" name="email" id="idemail" size="20" placeholder="usuario@servidor.dominio"><br>
+        <label for="idtelefono">Teléfono:</label><br>
+        <input type="tel" name="telefono" id="idtel" size="20"><br>
+    </fieldset>
+
+    <fieldset>
+      <legend id="msjCabIP"></legend>
+      <span id="msjDetIP"></span>
+    </fieldset>
+
+    <fieldset>
+      <legend>Tipo envío</legend>
+			<table><tr><td>
+          <table>
+            <tr>
+              <td><input type="radio" name="nTipoEnvio" value="1" id="idTipoEnvio1" onchange="modiFechaEntrega(this.value,'idFechaEntrega')"></td>
+              <td>Normal     (15días)</td>
+            </tr>
+            <tr>
+              <td><input type="radio" name="nTipoEnvio" value="2" id="idTipoEnvio2" onchange="modiFechaEntrega(this.value,'idFechaEntrega')"></td>
+              <td>Preferente (5días)</td>
+            </tr>
+            <tr>
+              <td><input type="radio" name="nTipoEnvio" value="3" id="idTipoEnvio3" onchange="modiFechaEntrega(this.value,'idFechaEntrega')"></td>
+              <td>Urgente    (2días)</td>
+            </tr>
+            <tr>
+              <td><input type="radio" name="nTipoEnvio" value="4" id="idTipoEnvio4" onchange="modiFechaEntrega(this.value,'idFechaEntrega')"></td>
+              <td>Personalizado</td>
+            </tr>
+          </table>
+				</td><td>
+					<table>
+						<tr>
+							<td><label for="idFechaEntrega">F. de Entrega:</label>
+							<td>
+                <input type="date" id="idFechaEntrega" name="nFechaEntrega" 
+                  onfocusout="validaFechaEntrega(this.value)" readonly>
+              </td>
+						</tr>
+					</table>
+				</td></tr></table>
+    </fieldset>
+
+    <script>
+      function selecDropDown(val) {
+        alert(val);
+    }
+    </script>
+
+    <fieldset>
+    <legend>Tipo de pago</legend>
+    <label for="idTipoPago">Tipo Pago:</label><br>
+      <div id="iDropdown">
+        <select id="iFormaPago" name="nFormaPago" onchange="selecDropDown(this.text)">
+          <option value="default">Seleccione tipo de envío</option>
+        </select>
+      </div>  
+    </fieldset>
+
+  </div>
+
+  <div id="idFinalizarPedido">
+    <fieldset>
+    	<label for="">Finalizar pedido ...</label><br>
+    	<table width="100%" border="1">
+    		<tr>
+    			<td with="50%">&nbsp;</td>
+    			<th with="25%"><input type="submit" value="Enviar"></th>
+      			<th with="25%"><input type="reset" value="Limpiar"></th>
+      			<td with="50%">&nbsp;
+                <input type="button" value="Probar"
+                        onclick="validaCHK('nlibroCHK', 'idcanL', 2, 4)">
+            </td>
+      		</tr>
+      	</table>
+    </fieldset>
+  </div>
+
+</div>
+
+
+</form>
+
+<!-- -->
+
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<!-- -->
+
+</body>
+</html>

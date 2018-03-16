@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  	<meta name="author" content="Ricardo Menéndez" />
+  	<meta name="keywords" content="cultural, leonesa" /> 
+  	<meta name="description" content="Test Prueba 2: Alta Socio"/>
+  	<title>Cultural y Deportiva Leonesa: Alta socio</title>
+  	<link rel="stylesheet" type="text/css" href="css/cultural_styles.css">
+</head>
+
+<body>
+
+<header>
+	<div id="divHeader">
+		<table>
+			<tr>
+				<th>
+					<img src="img/logo_cultural.png" alt="Logo Corporativo">
+				</th>
+				<th>
+					<h1>Cultural y Deportiva Leonesa &#153; LTD</h1>
+				</th>
+			</tr>
+		</table>
+	</div>
+</header>
+<br><hr>
+
+<table id="idTablaPrincipal"><tr><td>
+<section>
+	<form name="altaform" id="idaltaform" method="GET" action="#" target="_blank">
+	<table><tr><td>
+		<fieldset>
+		<legend>Datos del solicitante</legend>
+		<label for="idnombre">Nombre:</label><br>
+		<input type="text" name="nombre" id="idnombre" size="30"><br>
+		<label for="idapellido1">Primer Apellido:</label><br>
+		<input type="text" name="apellido1" id="idapellido1"size="30"><br>
+		<label for="idapellido2">Segundo Apellido:</label><br>
+		<input type="text" name="apellido2" id="idapellido2"size="30"><br>
+		<label for="idDNI">D.N.I.:</label><br>
+		<input type="number" name="dni" id="idDNI" size="9" required><br>
+		<label for="idtel">Teléfono:</label><br>
+		<input type="tel" name="telefono" id="idtel" size="12"><br>
+		<label for="idemail">email:</label><br>
+		<input type="email" name="email" id="idemail" size="20" 
+		 					placeholder="usuario@servidor.dominio"><br>
+		</fieldset>
+	</td><td>
+		<fieldset>
+		<legend>Seleccione el tipo de socio</legend>
+		<label for="idTipoSocios">Tipo Socios:</label><br>
+			<select name="tipoSocios" id="idTipoSocios">
+				<option value="ts0" selected></option>
+				<option value="ts1">Escuelas deportivas</option>
+		  		<option value="ts2">Junior</option>
+		  		<option value="ts3">Jupiter</option>
+		  		<option value="ts4">Adulto</option>
+		  		<option value="ts5">Jubilado</option>
+			</select>
+		</fieldset>
+
+		<fieldset>
+	  	<legend>Localización del Abono</legend>	
+	  	<table><tr><td>
+		  		<table>
+			  		<tr>
+			  			<td><input type="radio" name="localizacion" value="1"></td>
+			  			<td>Preferencia Este</td>
+			  		</tr>
+			  		<tr>
+			  			<td><input type="radio" name="localizacion" value="2"></td>
+			  			<td>Preferencia Oeste</td>
+			  		</tr>
+			  		<tr>
+			  			<td><input type="radio" name="localizacion" value="3"></td>
+			  			<td>Fondo Sur</td>
+			  		</tr>
+			  		<tr>
+			  			<td><input type="radio" name="localizacion" value="4"></td>
+			  			<td>Fondo Norte</td>
+			  		</tr>
+		  		</table>
+	  		</td><td>
+		  		<table>
+			  		<tr>
+			  			<td><input type="radio" name="localizacion" value="5"></td>
+			  			<td>Palco</td>
+			  		</tr>
+			  		<tr>
+			  			<td><input type="radio" name="localizacion" value="6"></td>
+			  			<td>Tribuna Este</td>
+			  		</tr>
+			  		<tr>
+			  			<td><input type="radio" name="localizacion" value="7"></td>
+			  			<td>Tribuna Oeste</td>
+			  		</tr>
+			  		<tr>
+			  			<td><input type="radio" name="localizacion" value="8"></td>
+			  			<td>Flexible</td>
+			  		</tr>
+	  			</table>
+	  		</td></tr>
+		</table>
+	</fieldset>
+
+</td></tr></table>
+
+<br>
+
+<table id="idTablaIngreso"><tr><td>
+	<fieldset>
+		<legend>Solicitar ingreso</legend><br>
+		<table><tr>
+	  	<td><input type="submit" value="Aupa Cultu!"></td>
+	  	<td><input type="reset" value="Limpiar formulario">
+		</form></td>
+		<td>
+		<form name="volverform" id="idvolverform" action="indexCultural.html" 
+			target="_top" method="GET">
+			<input type="submit" value="Volver al inicio">
+		</form></td>
+		</tr></table>
+	</fieldset>
+</td></tr></table>
+
+</section>
+</form>
+
+</td><td>
+	<img id="imagenPrecios" src="img/precios.jpg">
+</td></tr></table>
+
+<br><hr>
+<footer>
+	<div>
+		<table id="tablaPie">
+			<tr>
+				<td id="td1">&copy; Derechos reservados</td>
+				<td id="td1">&reg; Area Legal</td>
+				<td id="td1">Aviso de Privacidad</td>
+			</tr>
+		</table>
+	</div>
+</footer>
+
+</body>
+</html>

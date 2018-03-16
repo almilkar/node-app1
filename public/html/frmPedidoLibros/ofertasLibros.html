@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  	<meta name="author" content="Ricardo Menéndez" />
+  	<meta name="keywords" content="pedidos, ofertas" /> 
+  	<meta name="description" content="compra ofertas"/>
+  	<title>Compra ofertas en nuestros almacenes virtuales</title>
+</head>
+<body>
+
+<h1>Pedido de ofertas</h1>
+
+<form action="pedidorealizado.html" target="_self" method="GET" name="pedidos" id="idpedidos">
+
+<table>
+	<caption>
+		<h3>Lista de artículos para nuestra oferta</h3>
+	</caption>
+	<tbody>
+	<tr>
+		<td><img src="img/libro1.jpg" alt="Libro1" width="75" height="75"></td>
+    <td><img src="img/libro3.jpg" alt="Libro3" width="75" height="75"></td>
+    <td><img src="img/libro4.jpg" alt="Libro4" width="75" height="75"></td>
+    <td><img src="img/libro2.jpg" alt="Libro2" width="75" height="75"></td>
+    <td><img src="img/libro1.jpg" alt="Libro1" width="75" height="75"></td>
+    <td><img src="img/libro4.jpg" alt="Libro4" width="75" height="75"></td>
+    <td><img src="img/libro2.jpg" alt="Libro2" width="75" height="75"></td>
+    <td><img src="img/libro3.jpg" alt="Libro3" width="75" height="75"></td>
+    <td><img src="img/libro1.jpg" alt="Libro1" width="75" height="75"></td>
+    <td><img src="img/libro3.jpg" alt="Libro3" width="75" height="75"></td>
+    <td><img src="img/libro4.jpg" alt="Libro4" width="75" height="75"></td>
+    <td><img src="img/libro2.jpg" alt="Libro2" width="75" height="75"></td>
+    <td><img src="img/libro1.jpg" alt="Libro1" width="75" height="75"></td>
+    <td><img src="img/libro4.jpg" alt="Libro4" width="75" height="75"></td>
+	</tr>
+	</tbody>
+</table>
+
+<fieldset>  	
+  	<label for="">Su pedido de oferta ...</label><br>
+  	<table>
+  		<tr>
+  			<td><img src="../images/libro1.jpg" alt="Libro1" width="75" height="75"></td>
+  			<td><input type="radio" name="nlibroG1" value="L1"></td>
+  			<td>El Quijote</td>
+  			<td>Ref: 143774</td>
+  			<td><input type="hidden" name="reflibro1" value="143774"></td>
+  			<td><input type="number" name="nlibro1" value="0" max="3"></td>		
+  		</tr>
+  		<tr>
+  			<td><img src="../images/libro2.jpg" alt="Libro2" width="75" height="75"></td>
+  			<td><input type="radio" name="nlibroG1" value="L2"></td>
+  			<td>La Celestina</td>
+  			<td>Ref: 843334</td>
+  			<td><input type="hidden" name="reflibro1" value="843334"></td>
+  			<td><input type="number" name="nlibro2" value="0" max="3"></td>
+  		</tr>
+  		<tr>
+  			<td><img src="../images/libro3.jpg" alt="Libro3" width="75" height="75"></td>
+  			<td><input type="radio" name="nlibroG2" value="L3" max="3"></td>
+  			<td>En el día de hoy</td>
+  			<td>Ref: 003334</td>
+  			<td><input type="hidden" name="reflibro1" value="003334"></td>
+  			<td><input type="number" name="nlibro3" value="0"></td>
+  		</tr>
+  		<tr>
+  			<td><img src="../images/libro4.jpg" alt="Libro3" width="75" height="75"></td>
+  			<td><input type="radio" name="nlibroG2" value="L3" max="3"></td>
+  			<td>Caperucita</td>
+  			<td>Ref: 841124</td>
+  			<td><input type="hidden" name="reflibro1" value="841124"></td>
+  			<td><input type="number" name="nlibro3" value="0"></td>
+  		</tr>
+	</table>
+</fieldset>
+<br>
+<fieldset>
+	<legend>Información personal</legend>
+	<label for="idnombre">Nombre:</label><br>
+  	<input type="text" name="nombre" id="idnombre" size="30"><br>
+	<label for="idapellido">Apellido:</label><br>
+  	<input type="text" name="apellido" id="idapellido"size="30"><br>
+  	
+  	<label for="iddireccioncalle">Calle:</label><br>
+  	<input type="text" name="direccioncalle" id="iddireccioncalle"size="60"><br>
+  	<label for="iddireccionpoblacion">Población:</label><br>
+  	<input type="text" name="direccionpoblacion" id="iddireccionpoblacion"size="40"><br>
+  	<label for="iddireccioncp">C.P.:</label><br>
+  	<input type="text" name="direccioncp" id="iddireccioncp"size="20" maxlength="5"><br>
+
+  	<label for="idemail">email:</label><br>
+  	<input type="email" name="email" id="idemail" size="20" placeholder="usuario@servidor.dominio"><br>
+  	<label for="idtelefono">Teléfono:</label><br>
+  	<input type="tel" name="telefono" id="idtel" size="20"><br>
+</fieldset>
+<br>
+<fieldset>
+	<label for="">Finalizar pedido ...</label><br>
+	<table width="100%" border="1">
+		<tr>
+			<td with="50%">&nbsp;</td>
+			<th with="25%"><input type="submit" value="Enviar"></th>
+  			<th with="25%"><input type="reset" value="Limpiar"></th>
+  			<td with="50%">&nbsp;</td>
+  		</tr>
+  	</table>
+</fieldset>
+
+</body>
+</html>

@@ -1,0 +1,311 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+
+  <link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Servicios Informaticos Hopital de Leon" />
+  <meta name="keywords" content="altas ingresos" />
+  <meta name="description" content="Hospital/Altas/ingresos pacientes"/>
+  <title>Altas - Hopital de León</title>
+<style type="text/css">
+.msjLineaError {
+  color: red;
+  font-family: courier new;
+  font-style: bold;
+  font-size; 25%;
+}
+</style>
+
+<script src="js\pAltasHospital.js"></script>
+
+</head>
+
+<body onload="paginaCargada()">
+
+<!-- -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+<a class="navbar-brand" href="#">
+    <div id="idBarraLogo">
+      <figure>
+        <img src="img/logohospital.png" alt="Logo Hospital" width="75" height="75">
+      </figure>
+      <figcaption>Hospital Universitario de León</figcaption>
+    </div>
+</a>
+
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse"
+      data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+      aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Inicio<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Altas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Modificaciones</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Consultas
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Altas</a>
+          <a class="dropdown-item" href="#">Modificaciones</a>
+          <a class="dropdown-item" href="#">Resumen</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+
+</nav>
+
+<!-- -->
+
+<div class="container">
+
+  <form action="#" target="_self" method="GET" name="frmAltas" id="frmAltas"
+       onsubmit="return alEnviarAlta()">
+
+  <div class="row"> <!-- DatosPersonales, ListaDolencias, UltimoIngreso -->
+    <div class="col">
+      <div id="idDatosPersonales" class="container">
+		    <fieldset>
+		      <legend>Información personal enfermo</legend>
+            <div class="row"><div class="col">
+		      	<label for="idnombre">Nombre Enfermo para alta:</label><br>
+		        	<input type="text" name="nombre" id="idnombre" size="30" required
+                oninvalid="document.getElementById('msjidnombre').textContent = 'Error: Introduzca nombre del enfermo'"
+		        		onfocusout="validaNombre(this.value,'idnombre')"
+                >
+		        	<span id="msjidnombre" class="msjLineaError"></span>
+            </div></div>
+
+		        <div class="row"><div class="col">
+		      	<label for="idapellido1">Apellido 1º:</label><br>
+		        	<input type="text" name="apellido1" id="idapellido1" size="30" required
+                oninvalid="document.getElementById('msjidapellido1').textContent = 'Error: Introduzca apellido 1 del enfermo'"
+		        		onfocusout="validaNombre(this.value,'idapellido1')">
+		        	<span id="msjidapellido1" class="msjLineaError"></span>
+		        </div></div>
+
+            <div class="row"><div class="col">
+		        <label for="idapellido2">Apellido 2º:</label><br>
+		        	<input type="text" name="apellido2" id="idapellido2" size="30" required
+                oninvalid="document.getElementById('msjidapellido2').textContent = 'Error: Introduzca apellido 2 del enfermo'"
+		        		onfocusout="validaNombre(this.value,'idapellido2')">
+		        	<span id="msjidapellido2" class="msjLineaError"></span>
+		        </div></div>
+
+            <div class="row"><div class="col">
+		        <label for="idDNI">D.N.I. del enfermo:</label><br>
+		        	<input type="text" name="numDNI" id="idnumDNI" size="30" required
+                oninvalid="document.getElementById('msjidnumDNI').textContent = 'Error: Introduzca DNI del enfermo'"
+		        		onfocusout="validaNumDNI(this.value,'idnumDNI')">
+		        	<span id="msjidnumDNI" class="msjLineaError"></span>
+		        </div></div>
+
+            <div class="row"><div class="col">
+		        <label for="idnumSS">Nº SS del enfermo:</label><br>
+		        	<input type="text" name="numSS" id="idnumSS" size="30" required
+                oninvalid="document.getElementById('msjidnumSS').textContent = 'Error: Introduzca NSS del enfermo'"
+		        		onfocusout="actualizaDiasIngresado(this.value)">
+		        	<span id="msjidnumSS" class="msjLineaError"></span>
+		        </div></div>
+
+            <div class="row"><div class="col">
+		        <div class="container">
+              <div class="row">
+		            <div class="col"><label for="idfecha">Fecha actual</label></div>
+                <div class="col"><label for="idhora">Hora</label></div>
+              </div>
+              <div class="row">
+                <div class="col">
+		              <input type="text" name="fecha" id="idfecha" size="10" readonly>
+                </div>
+		            <div class="col">
+                  <input type="text" name="hora" id="idhora" size="5" readonly>
+                </div>
+              </div>
+		        </div>
+            </div></div>
+
+		    </fieldset>
+      </div>
+    </div>
+    <div class="col">
+      <div id="idListaDolencias" class="container">
+      <fieldset>
+      <legend>Dolencias declaradas por el enfermo</legend>
+    	   <div class="row"><div class="col">
+    	     <input type="checkbox" name="nDolenciasCHK" value="D1" id="iDolenciaCHKL1"
+                onchange="actualizaDiasIngresado(document.getElementById('idnumSS').value)">
+                <span>Fiebre</span>
+         </div></div>
+         <div class="row"><div class="col">
+          <input type="checkbox" name="nDolenciasCHK" value="D2" id="iDolenciaCHKL2"
+                onchange="actualizaDiasIngresado(document.getElementById('idnumSS').value)">
+                <span>Dolor muscular</span>
+         </div></div>
+         <div class="row"><div class="col">
+         <input type="checkbox" name="nDolenciasCHK" value="D3" id="iDolenciaCHKL3"
+                onchange="actualizaDiasIngresado(document.getElementById('idnumSS').value)">
+                <span>Dolor estomacal</span>
+         </div></div>
+         <div class="row"><div class="col">
+         <input type="checkbox" name="nDolenciasCHK" value="D4" id="iDolenciaCHKL4"
+                onchange="actualizaDiasIngresado(document.getElementById('idnumSS').value)">
+                <span>Vómitos</span>
+         </div></div>
+         <div class="row"><div class="col">
+         <input type="checkbox" name="nDolenciasCHK" value="D5" id="iDolenciaCHKL5"
+                onchange="actualizaDiasIngresado(document.getElementById('idnumSS').value)">
+                <span>Mareos</span>
+         </div></div>
+         <div class="row"><div class="col">
+         <input type="checkbox" name="nDolenciasCHK" value="D6" id="iDolenciaCHKL6"
+                onchange="actualizaDiasIngresado(document.getElementById('idnumSS').value)">
+                <span>Hipertensión</span>
+         </div></div>
+         <div class="row"><div class="col">
+         <input type="checkbox" name="nDolenciasCHK" value="D7" id="iDolenciaCHKL7"
+                onchange="actualizaDiasIngresado(document.getElementById('idnumSS').value)">
+                <span>Traumatismos</span>
+         </div></div>
+         <div class="row"><div class="col">
+         <input type="checkbox" name="nDolenciasCHK" value="D8" id="iDolenciaCHKL8"
+                onchange="actualizaDiasIngresado(document.getElementById('idnumSS').value)">
+                <span>Pérdida de sensibilidad</span>
+         </div></div>
+         <div class="row"><div class="col">
+         <input type="checkbox" name="nDolenciasCHK" value="D9" id="iDolenciaCHKL9"
+                onchange="actualizaDiasIngresado(document.getElementById('idnumSS').value)">
+                <span>Insuficiencia cardiaca</span>
+         </div></div>
+         <div class="row"><div class="col">
+         <input type="checkbox" name="nDolenciasCHK" value="D10" id="iDolenciaCHKL10"
+                onchange="actualizaDiasIngresado(document.getElementById('idnumSS').value)">
+                <span>Insuficiencia respiratoria</span>
+         </div></div>
+         <div class="row"><div class="col">
+         <input type="checkbox" name="nDolenciasCHK" value="D11" id="iDolenciaCHKL11"
+                onchange="actualizaDiasIngresado(document.getElementById('idnumSS').value)">
+                <span>Otras dolencias</span>
+         </div></div>
+      </fieldset>
+          <div class="row"><div class="col">
+            <label for="idDias">Días ingresado:</label>
+              <input type="text" name="Dias" id="idDias" size="2"
+                readonly value="0" onchange="compruebaDias(this.value)">
+              <span id="msjidDias" class="msjLineaError"></span>
+          </div></div>
+      </div>
+    </div>
+    <div class="col">
+      <div id="idUltimoIngreso" class="container">
+
+        <div class="row">
+        <fieldset>
+          <legend>Último ingreso del enfermo</legend>
+          <div class="row"><div class="col">
+            <input type="radio" name="ultimoingreso" id="ultimoingreso1" value="2">
+            <span class="">Más de un año</span>
+          </div></div>
+          <div class="row"><div class="col">
+            <input type="radio" name="ultimoingreso" id="ultimoingreso2" value="1">
+            <span class="">Menos de un año</span>
+          </div></div>
+          <div class="row"><div class="col">
+            <input type="radio" name="ultimoingreso" id="ultimoingreso3" value="0" checked>
+            <span class="">Nunca/No consta</span>
+          </div></div>
+        </fieldset>
+        </div>
+
+        <div class="row">
+          <div id="divFinAlta" class="container mt-3 pt-3 mb-3 pb-3 border border-dark">
+            <fieldset><legend>Emitir Solicitud de Alta para el enfermo</legend>
+            <div class="row">
+              <div class="col"><input type="submit" value="Emitir Solicitud de Alta"></div>
+              <div class="col">
+                <input type="button" value="Limpiar Solicitud de Alta" id="btnReset" onclick="resetForm();">
+              </div>
+              <div class="col">
+                <input type="button" value="Test Solicitud" onclick="testP1()">
+              </div>
+            </div>
+            </fieldset>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div id="idDivFoot" class="container pt-3">
+  <div class="row">
+    <div class="col-3">
+      <div class="container border border-dark">
+		    <div class="row"><div class="col">Aviso Legal</div></div>
+        <div class="row"><div class="col">Aviso de Seguridad</div></div>
+		    <div class="row"><div class="col">Política Lingüística</div></div>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="container border border-dark">
+        <div class="row">
+          <div class="col">RSS</div>
+          <div class="col">Mapa web</div>
+          <div class="col">Accesibilidad</div>
+          <div class="col">Ayuda</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="container border border-dark">
+          <div class="row"><div class="col">Buscar</div></div>
+          <div class="row"><div class="col">Vista clásica</div></div>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="container border border-dark">
+        <div class="row"><div class="col">Castellano</div></div>
+        <div class="row"><div class="col">Catalogo</div></div>
+        <div class="row"><div class="col">Galego</div></div>
+        <div class="row"><div class="col">Valenciá</div></div>
+        <div class="row"><div class="col">Euskera</div></div>
+        <div class="row"><div class="col">English</div></div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+  </form>
+
+</div>
+
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

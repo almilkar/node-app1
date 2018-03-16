@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  	<meta name="author" content="Servicios Informaticos La Voz del Probe" />
+  	<meta name="keywords" content="registro, periódico" />
+  	<meta name="description" content="Registro de entrada al periódico la Voz del Probe"/>
+  	<title>Registro de Entrada - La Voz del Probe</title>
+
+  	<link rel="stylesheet" type="text/css" href="css/frmRegPeriodico.css">
+	<script src="js/frmRegPeriodico.js"></script>
+
+</head>
+<body>
+
+<header>
+	<span>
+		<h2>Formulario de Registro del Periódico Digital</h2>
+		<h5>Prueba práctica - MF0491-3</h5>
+	</span>
+</header>
+
+<section class="formulario">
+	<form action="#" target="_self" method="GET" name="frmRegistro" id="frmRegistro"
+	       onsubmit="return alEnviarRegistro()">
+
+		<fieldset><legend class="textoLeyenda">Datos de Registro</legend>
+			<label for="email" class="etiqueta">E-mail:</label><br>
+			<input type="text" name="email" id="email" size="20" placeholder="usuario@servidor.dominio"
+				onfocusout="validarEmail(this.value,'msjEmail', false)"
+			><br>
+			<span id="msjEmail" class="msjLError"></span><br>
+
+
+			<label for="alias" class="etiqueta">Alias:</label><br>
+			<input type="text" name="alias" id="alias" size="20"
+				onfocusout="validarAlias(this.value,'msjAlias')"
+			><br>
+			<span id="msjAlias" class="msjLError"></span><br>
+			<p>El nombre que aperecerá si deja sus comentarios en nuestra versión digital</p>
+
+
+			<label for="password" class="etiqueta">Contraseña:</label><br>
+			<input type="password" name="password" id="password" size="20"
+				onfocusout="validarPassword(this.value,'msjPassword')"
+			><br>
+			<span id="msjPassword" class="msjLError"></span><br>
+
+
+			<label for="repassword" class="etiqueta">Repetir Contraseña:</label><br>
+			<input type="password" name="repassword" id="repassword" size="20"
+				onfocusout="validarRepassword(this.value,'msjRepassword')"
+			><br>
+			<span id="msjRepassword" class="msjLError"></span><br>
+
+
+			<label for="preguntas" class="etiqueta">Indique un recordatorio de contraseña</label><br>
+			<select name="preguntas" id="preguntas" onchange="validarPreguntas()" placeholder="Buscar preguntas">
+				<option value="0" selected></option>	
+			  	<option value="1">¿Tu fecha de nacimiento?</option>
+			  	<option value="2">¿Tu color favorito?</option>
+			  	<option value="3">¿Cómo se llema tu abuela materna?</option>
+			  	<option value="4">¿Cuál es tu número de teléfono móvil?</option>
+			  	<option value="5">¿Tu DNI?</option>
+			  	<option value="6">¿Cuás es tu número de teléfono de empresa?</option>
+			</select>
+			<br>
+			<label for="respuesta" class="etiqueta">Respuesta:</label><br>
+			<input type="text" name="respuesta" id="respuesta" size="20"
+				onfocusout="validarRespuesta(this.value,'msjRespuesta', false)"
+			><br>
+			<span id="msjRespuesta" class="msjLError"></span><br>
+
+			<input type="submit" value="Emitir Solicitud de Registro" id="emitir" disabled>
+		</fieldset>
+	</form>
+</section>
+
+<footer>
+	<blockquote>
+		El cometido de esta práctica es aplicar los conocimientos adquiridos en el módulo de programación web en el entorno cliente.
+	</blockquote>
+</footer>
+
+</body>
+</html>

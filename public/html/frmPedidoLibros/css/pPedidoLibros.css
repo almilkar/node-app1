@@ -1,0 +1,35 @@
+#idTiraImagenes {
+  position: relative;
+  display: inline-flex;
+  justify-content: space-between;
+  border:1px solid green;
+  width: 100%;
+}
+
+.clsLineaArticulo  {
+  position: relative;
+  display: block;
+  border:1px solid green;
+}
+
+.clsElementoLinea {
+  position: relative;
+  display: inline;
+}
+
+.clsElementoLineaCantidad {
+  position: relative;
+  display: inline;
+}
+
+.clsElementoLineaTitulo {
+  position: relative;
+  display: inline;
+}
+
+.msgLError {
+  color: red;
+  font-family: courier new;
+  font-style: bold;
+  font-size; 25%;
+}
