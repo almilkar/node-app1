@@ -17,5 +17,4 @@ router.get('/clase/:convocatoria', function(req, res, next) {
   	res.render('clase', clase);
 });
 
-
 module.exports = router;
